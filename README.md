@@ -38,4 +38,12 @@
 
 
 # Sprint 13 Thursday
-
+1. Start new react project (vite)
+2. Folder structure
+3. [Rendering Techniques](https://www.theodinproject.com/lessons/node-path-react-new-rendering-techniques)
+4. [Keys](https://www.theodinproject.com/lessons/node-path-react-new-keys-in-react)
+5. [Passing data between components]()
+6. Tooling
+   1. React Dev Tools
+   2. CSS in JS
+   3. 
