@@ -72,15 +72,18 @@
   Rules of state:
   1. State shouldn't be directly mutated
   2. State updates are asynchronous. When you set state, React will apply the update in the next component render.
+  3. React batches state updates where possible
 
-4. useEffect
+1. useEffect
    1. useEffect runs on every render
    2. Control the render with the dependency array
    3. Cleaning up our effects
 
-5. Class based components -> The "old" way
+2. Class based components -> The "old" way
    1. constructor
    2. 'this'
    3. binding
    4. lifecycle methods
    
+
+children prop

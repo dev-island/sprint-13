@@ -35,6 +35,7 @@ const ID_TO_COMPONENT = {
 
 function App() {
   const [activeButton, setActiveButton] = useState(1);
+
   function handleSetActiveButton(id) {
     setActiveButton(id);
   }
@@ -53,7 +54,7 @@ function App() {
         ))}
       </div>
       <div className="container">
-        <Component />
+        <Component myName="Andrew" />
       </div>
     </>
   );

@@ -1,6 +1,6 @@
-import React from "react";
+import { Component } from "react";
 
-class NoStateNoProps extends React.Component {
+class NoStateNoProps extends Component {
   render() {
     return (
       <div>

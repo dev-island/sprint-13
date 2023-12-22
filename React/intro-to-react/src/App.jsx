@@ -1,30 +1,59 @@
-import './App.css'
-import { useState } from 'react'
+import "./App.css";
+import {
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+  useRef,
+  useLayoutEffect,
+  useContext,
+  useReducer,
+} from "react";
 
-function Button({ handleClick, title }) {
+const ChildComp = () => {
+  console.log('CHILD RENDERS')
   return (
-    <button onClick={handleClick}>{title}</button>
-  );
+    <div>Child Comp</div>
+  )
+}
+
+const ButtonContainer = () => {
+  const [shouldFetchData, setShouldFetchData] = useState(false);
+  const [data, setData] = useState();
+  console.log('BUTTON CONTAINER RENDERS')
+
+
+  useEffect(() => {
+    console.log('USE EFFECT')
+    if (shouldFetchData) {
+      console.log('FETCHING DATA')
+      const interval = setInterval(() => {
+        setData(Math.random());
+        setShouldFetchData(false);
+      }, 5000);
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  }, [shouldFetchData]);
+
+  return (
+    <div>
+      <button onClick={() => setShouldFetchData(!shouldFetchData)}>{shouldFetchData ? "Loading" : "Start"}</button>
+      {data ? <div>{data}</div> : null}
+    </div>
+  )
 }
 
 
-
-
-
-
-
-
 function App() {
-  const [ready, setReady] = useState(false);
-
+  console.log("APP RENDERS")
   return (
     <>
-      <Button
-        handleClick={() => setReady(!ready)}
-        title={ready ? "Ready" : "Not ready"}
-      />
+      <ButtonContainer />
+      <ChildComp />
     </>
   );
 }
 
-export default App
+export default App;
